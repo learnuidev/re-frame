@@ -1,6 +1,6 @@
-(ns re-frame.handlers
-  (:require [re-frame.db         :refer [app-db]]
-            [re-frame.utils      :refer [first-in-vector warn]]))
+(ns app.re-frame.handlers
+  (:require [app.re-frame.db         :refer [app-db]]
+            [app.re-frame.utils      :refer [first-in-vector warn]]))
 
 
 ;; -- composing middleware  -----------------------------------------------------------------------
@@ -27,6 +27,9 @@
 
 (def ^:private id->fn  (atom {}))
 
+(comment
+  (get @id->fn :increment))
+
 
 (defn lookup-handler
   [event-id]
@@ -52,6 +55,11 @@
 
 ;; -- lookup and call -----------------------------------------------------------------------------
 
+;;
+(comment
+  (handle [:increment])
+  (first-in-vector [:increment])
+  (lookup-handler (first-in-vector [:increment])))
 (defn handle
   "Given an event vector, look up the handler, then call it.
   By default, handlers are not assumed to be pure. They are called with

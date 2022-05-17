@@ -1,9 +1,9 @@
-(ns re-frame.core
+(ns app.re-frame.core
   (:require
-    [re-frame.handlers   :as handlers]
-    [re-frame.subs       :as subs]
-    [re-frame.router     :as router]
-    [re-frame.middleware :as middleware]))
+    [app.re-frame.handlers   :as handlers]
+    [app.re-frame.subs       :as subs]
+    [app.re-frame.router     :as router]
+    [app.re-frame.middleware :as middleware]))
 
 
 ;; --  API  -------
@@ -24,6 +24,10 @@
 (def trim-v      middleware/trim-v)
 (def after       middleware/after)
 ; (def log-events  middleware/log-events)
+
+(comment
+  (type pure)
+  (fn? pure))
 
 
 
